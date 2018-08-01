@@ -23,8 +23,6 @@ public:
     void parse_directory(QString &dir);
 private:
     void parse_file(const fs::path &path);
-    // internal parsed fields
-    int _id;
 
 };
 
