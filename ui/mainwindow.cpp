@@ -31,7 +31,7 @@ void MainWindow::on_action_Quit_triggered() {
 void MainWindow::on_action_Directory_triggered() {
     // open directory chooser
     QString dir = QFileDialog::getExistingDirectory(this, tr("Open directory"),
-            "/var/DATA/DATA_stephane", QFileDialog::ShowDirsOnly);
+            "/home/stephane/DATA/ALB", QFileDialog::ShowDirsOnly);
     Parser parser;
     parser.parse_directory(dir);
 }
