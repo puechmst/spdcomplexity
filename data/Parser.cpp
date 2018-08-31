@@ -75,7 +75,7 @@ double parse_double(const std::string &str) {
     return val;
 }
 
-Parser::Parser() {
+Parser::Parser(int ctx) : m_ctx(ctx) {
 
 }
 
@@ -91,8 +91,7 @@ void Parser::parse_directory(QString &dir) {
         std::cout << p.path() << std::endl;
         parse_file(p.path());
         i++;
-        if(i > 0)
-            break;
+
     }
 }
 
@@ -195,6 +194,7 @@ void Parser::parse_file(const fs::path &path) {
             //bson_oid_init (&oid, NULL);
             document = BCON_NEW(
                     "id",BCON_INT32(id),
+                    "ctx",BCON_INT32(m_ctx),
                     "t",BCON_DATE_TIME(mktime(&tm_time) * 1000),
                     "loc","{",
                     "type",BCON_UTF8("Point"),
@@ -217,7 +217,7 @@ void Parser::parse_file(const fs::path &path) {
             }
             i++;
             if(i % 100000 == 0) {
-                std::cout << i << " lines " << std::endl;
+                std::cout << path << " " << i << " lines " << std::endl;
             }
 
         }

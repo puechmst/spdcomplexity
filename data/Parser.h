@@ -19,7 +19,7 @@ namespace fs = std::filesystem;
 
 class Parser {
 public:
-    Parser();
+    Parser(int ctx);
     void parse_directory(QString &dir);
 private:
     void parse_file(const fs::path &path);
@@ -30,7 +30,7 @@ class ParserException : public std::exception {
 public:
     ParserException(std::string const& msg ="") throw();
 private:
-
+    int m_ctx;
     std::string m_msg;
 };
 

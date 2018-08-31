@@ -32,6 +32,6 @@ void MainWindow::on_action_Directory_triggered() {
     // open directory chooser
     QString dir = QFileDialog::getExistingDirectory(this, tr("Open directory"),
             "/home/stephane/DATA/ALB", QFileDialog::ShowDirsOnly);
-    Parser parser;
+    Parser parser(1000);
     parser.parse_directory(dir);
 }

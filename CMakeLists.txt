@@ -20,7 +20,7 @@ if (Boost_FOUND)
 endif ()
 
 # Find the QtWidgets library
-set(CMAKE_PREFIX_PATH /home/stephane/Qt/5.11.0/gcc_64)
+set(CMAKE_PREFIX_PATH /home/stephane/Qt/5.11.1/gcc_64)
 find_package(Qt5Widgets CONFIG REQUIRED)
 
 # find libproj
